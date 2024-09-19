@@ -8,7 +8,8 @@ import com.ecommerce.catalog.domain.model.Price;
 import com.ecommerce.catalog.domain.model.Product;
 
 public class ProductMapper implements IProductMapper {
-
+// !TINES QUE PONER UNA CLASE EN EL HADLER QUE IMPLEMENTE DE UNA INTERFAZ QUE TAMBIENE STA EN EL HANDLER
+  // !EN ESTA CLASE SI TRAES LOS MAPERS HACIENDO UNA IYECCION DE DEPENDENCIAS
   @Override
   public Product toModel(CreateProductDto createProductDto, String id) {
     Price price = Price.builder().value(createProductDto.getPrice().getValue())

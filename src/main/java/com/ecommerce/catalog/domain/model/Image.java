@@ -10,7 +10,7 @@ public class Image {
   private ExtensionEnum extension;
   private LocalDateTime createdAt;
   private LocalDateTime updatedAt;
-
+  //Intentar no colocar logica en el modelo
   public Image() {}
 
   public Image(String id, String url, String alt, ExtensionEnum extension, LocalDateTime createdAt,

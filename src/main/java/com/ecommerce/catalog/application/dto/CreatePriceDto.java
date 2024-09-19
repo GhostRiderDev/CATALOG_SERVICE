@@ -3,7 +3,6 @@ package com.ecommerce.catalog.application.dto;
 import java.math.BigDecimal;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.Pattern;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +15,6 @@ public class CreatePriceDto {
   @DecimalMin(value = "0.01")
   private BigDecimal value;
 
-  
+  //! NO PONER DATOS QUEMADOS EJ¨9999999999999.99 SE TIENEN QUE PONER EN CONSTANTES
   private String currency;
 }

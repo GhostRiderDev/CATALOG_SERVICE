@@ -9,7 +9,7 @@ public class Brand {
   private LocalDateTime createdAt;
   private LocalDateTime updatedAt;
 
-
+//Intentar no colocar logica en el modelo
   public Brand() {}
 
   public Brand(String id, String name, String cuntry, LocalDateTime createdAt,
