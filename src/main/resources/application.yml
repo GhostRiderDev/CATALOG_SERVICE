@@ -1,0 +1,44 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: CatalogService
+
+  datasource:
+    url: ${CATALOG_DB_URI}
+    username: ${CATALOG_DB_USER}
+    password: ${CATALOG_DB_PASSWORD}
+    driver-class-name: ${CATALOG_DB_DRIVER}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: ${CATALOG_DB_DIALECT}
+  cloud:
+    vault:
+      uri: http://localhost:8200
+      token: ${VAULT_TOKEN}
+      authentication: token
+      scheme: http
+      kv:
+        enabled: true
+        backend: secrets
+        default-context: catalog
+        profile-separator: "/"
+  config:
+    import: vault://
+
+springdoc:
+  swagger-ui:
+    path: /docs
+# management:
+#   endpoints:
+#     web:
+#       exposure:
+#         include: "*"
+#   endpoint:
+#     env:
+#       show-values: always
