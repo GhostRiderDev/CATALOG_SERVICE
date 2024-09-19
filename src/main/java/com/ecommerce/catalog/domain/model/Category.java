@@ -8,7 +8,7 @@ public class Category {
   private Image image;
   private LocalDateTime createdAt;
   private LocalDateTime updatedAt;
-
+//Intentar no colocar logica en el modelo
 
   public Category() {}
 

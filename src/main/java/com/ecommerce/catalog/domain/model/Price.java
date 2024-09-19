@@ -8,7 +8,7 @@ public class Price {
   private String currency;
 
   public Price() {}
-
+  //Intentar no colocar logica en el modelo
   public Price(BigDecimal value, String currency) {
     this.value = value;
     this.currency = currency;

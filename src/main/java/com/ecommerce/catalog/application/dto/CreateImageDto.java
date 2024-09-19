@@ -12,18 +12,17 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CreateImageDto {
-  @NotNull
+
   @NotBlank
   @URL
   private String url;
 
-  @NotNull
+
   @NotBlank
   @Size(min = 3, max = 100)
   private String alt;
 
-  @NotNull
   @NotBlank
-  @Size(min = 3, max = 6)
+  @Size(min = 3, max = 6, message = " minimo 3 maximo 6")
   private String extension;
 }

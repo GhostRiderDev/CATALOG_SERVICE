@@ -9,17 +9,18 @@ import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.UniqueElements;
 
 @Builder
 @Getter
 @Setter
 public class CreateProductDto {
-  @NotNull
+
   @NotBlank
   @Size(min = 3, max = 100)
   private String name;
 
-  @NotNull
+
   @NotBlank
   @Size(min = 3, max = 1000)
   private String description;
@@ -31,7 +32,7 @@ public class CreateProductDto {
   @Length(max = 10, min = 1)
   private List<@UUID String> categoriesId;
 
-  @NotNull
+
   @NotBlank
   @UUID
   private String brandId;

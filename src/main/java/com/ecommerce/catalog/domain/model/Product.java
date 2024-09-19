@@ -16,6 +16,8 @@ public class Product {
   private LocalDateTime createdAt;
   private LocalDateTime updatedAt;
 
+
+  //Intentar no colocar logica en el modelo
   public Product() {}
 
   public Product(String id, String name, String description, Price price, List<Category> categories,
