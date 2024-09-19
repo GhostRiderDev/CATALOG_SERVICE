@@ -1,4 +1,4 @@
-package com.ecommerce.catalog.domain.model;
+package com.ecommerce.catalog.domain.model.brand;
 
 import java.time.LocalDateTime;
 

@@ -1,4 +1,4 @@
-package com.ecommerce.catalog.domain.port.Service;
+package com.ecommerce.catalog.domain.product.port.useCase;
 
 import java.util.List;
 

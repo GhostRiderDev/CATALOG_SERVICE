@@ -1,5 +1,10 @@
 package com.ecommerce.catalog.domain.model.category.port.out;
 
+import java.util.List;
+import java.util.Optional;
+
+import com.ecommerce.catalog.domain.model.category.Category;
+
 interface ICategoryRepository {
     List<Category> findAll();
     Optional<Category> findById(String id);

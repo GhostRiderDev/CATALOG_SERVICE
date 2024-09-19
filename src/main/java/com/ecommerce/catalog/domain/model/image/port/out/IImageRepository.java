@@ -1,6 +1,9 @@
 package com.ecommerce.catalog.domain.model.image.port.out;
 
 import java.util.List;
+import java.util.Optional;
+
+import com.ecommerce.catalog.domain.model.image.Image;
 
 /**
  * IImageRepository

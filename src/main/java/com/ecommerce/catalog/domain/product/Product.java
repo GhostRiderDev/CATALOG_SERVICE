@@ -2,7 +2,11 @@ package com.ecommerce.catalog.domain.model;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import io.swagger.v3.oas.models.tags.Tag;
+
+import com.ecommerce.catalog.domain.model.brand.Brand;
+import com.ecommerce.catalog.domain.model.category.Category;
+import com.ecommerce.catalog.domain.model.image.Image;
+import com.ecommerce.catalog.domain.model.price.Price;
 
 public class Product {
   private String id;
@@ -12,7 +16,6 @@ public class Product {
   private List<Category> categories;
   private Brand brand;
   private List<Image> images;
-  private List<Tag> tags;
   private LocalDateTime createdAt;
   private LocalDateTime updatedAt;
 
@@ -21,7 +24,7 @@ public class Product {
   public Product() {}
 
   public Product(String id, String name, String description, Price price, List<Category> categories,
-      Brand brand, List<Image> images, List<Tag> tags, LocalDateTime createdAt,
+      Brand brand, List<Image> images, LocalDateTime createdAt,
       LocalDateTime updatedAt) {
     this.id = id;
     this.name = name;
@@ -30,7 +33,6 @@ public class Product {
     this.categories = categories;
     this.brand = brand;
     this.images = images;
-    this.tags = tags;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
   }
@@ -93,13 +95,7 @@ public class Product {
     this.images = images;
   }
 
-  public List<Tag> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<Tag> tags) {
-    this.tags = tags;
-  }
+ 
 
   public LocalDateTime getCreatedAt() {
     return createdAt;
@@ -123,7 +119,7 @@ public class Product {
   public String toString() {
     return "Product{" + "id='" + id + '\'' + ", name='" + name + '\'' + ", description='"
         + description + '\'' + ", price=" + price + ", categories=" + categories + ", brand="
-        + brand + ", images=" + images + ", tags=" + tags + ", createdAt=" + createdAt
+        + brand + ", images=" + images + ", createdAt=" + createdAt
         + ", updatedAt=" + updatedAt + '}';
   }
 
@@ -139,7 +135,6 @@ public class Product {
     private List<Category> categories;
     private Brand brand;
     private List<Image> images;
-    private List<Tag> tags;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
@@ -178,10 +173,6 @@ public class Product {
       return this;
     }
 
-    public ProductBuilder tags(List<Tag> tags) {
-      this.tags = tags;
-      return this;
-    }
 
     public ProductBuilder createdAt(LocalDateTime createdAt) {
       this.createdAt = createdAt;

@@ -2,7 +2,9 @@ package com.ecommerce.catalog.domain.model.brand.port.out;
 
 import java.util.List;
 
-import com.ecommerce.catalog.domain.model.Brand;
+import com.ecommerce.catalog.domain.model.brand.Brand;
+
+
 
 public interface IBrandRepository {
     List<Brand> findAll();

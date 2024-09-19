@@ -6,9 +6,9 @@ import com.ecommerce.catalog.application.dto.CreateImageDto;
 import com.ecommerce.catalog.application.dto.CreatePriceDto;
 import com.ecommerce.catalog.application.dto.CreateProductDto;
 import com.ecommerce.catalog.domain.enumerate.ExtensionEnum;
-import com.ecommerce.catalog.domain.model.Image;
-import com.ecommerce.catalog.domain.model.Price;
-import com.ecommerce.catalog.domain.model.Product;
+import com.ecommerce.catalog.domain.model.image.Image;
+import com.ecommerce.catalog.domain.model.price.Price;
+import com.ecommerce.catalog.domain.product.Product;
 
 public class ProductMapper implements IProductMapper {
 

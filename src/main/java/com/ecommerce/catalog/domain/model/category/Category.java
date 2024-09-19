@@ -1,6 +1,8 @@
-package com.ecommerce.catalog.domain.model;
+package com.ecommerce.catalog.domain.model.category;
 
 import java.time.LocalDateTime;
+
+import com.ecommerce.catalog.domain.model.image.Image;
 
 public class Category {
   private String id;
