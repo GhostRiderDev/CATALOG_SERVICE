@@ -1,5 +1,7 @@
 package com.ecommerce.catalog.domain.exception;
 
+import com.ecommerce.catalog.domain.constant.Constant;
+
 public class NotFoundException extends RuntimeException {
 
   public NotFoundException(String message) {
@@ -7,7 +9,7 @@ public class NotFoundException extends RuntimeException {
   }
 
   public NotFoundException() {
-    super("Resource not found");
+    super(Constant.RESOURCE_NOT_FOUND);
   }
 
 }

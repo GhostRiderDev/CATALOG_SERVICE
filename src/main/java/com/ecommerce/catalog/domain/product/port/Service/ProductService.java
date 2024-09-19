@@ -1,6 +1,8 @@
 package com.ecommerce.catalog.domain.port.Service;
 
 import java.util.List;
+
+import com.ecommerce.catalog.domain.constant.Constant;
 import com.ecommerce.catalog.domain.exception.NotFoundException;
 import com.ecommerce.catalog.domain.model.Product;
 import com.ecommerce.catalog.domain.port.in.service.IProductService;
@@ -22,7 +24,7 @@ public class ProductService implements IProductService {
   @Override
   public Product findProductById(String id) {
     return productRepository.findById(id)
-        .orElseThrow(() -> new NotFoundException("Product not found"));
+        .orElseThrow(() -> new NotFoundException(Constant.RESOURCE_NOT_FOUND));
   }
 
   @Override
@@ -33,14 +35,14 @@ public class ProductService implements IProductService {
   @Override
   public Product deleteProduct(String id) {
     Product product = productRepository.findById(id)
-        .orElseThrow(() -> new NotFoundException("Product not found"));
+        .orElseThrow(() -> new NotFoundException(Constant.RESOURCE_NOT_FOUND));
     return productRepository.deleteById(product.getId());
   }
 
   @Override
   public Product updateProduct(Product product) {
     Product existingProduct = productRepository.findById(product.getId())
-        .orElseThrow(() -> new NotFoundException("Product not found"));
+        .orElseThrow(() -> new NotFoundException(Constant.RESOURCE_NOT_FOUND));
     return productRepository.updateById(existingProduct.getId(), product);
   }
 
