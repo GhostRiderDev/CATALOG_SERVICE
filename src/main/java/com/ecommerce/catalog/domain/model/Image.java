@@ -72,30 +72,50 @@ public class Image {
         + ", extension=" + extension + '}';
   }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o)
-      return true;
-    if (o == null || getClass() != o.getClass())
-      return false;
-
-    Image image = (Image) o;
-
-    if (id != null ? !id.equals(image.id) : image.id != null)
-      return false;
-    if (url != null ? !url.equals(image.url) : image.url != null)
-      return false;
-    if (alt != null ? !alt.equals(image.alt) : image.alt != null)
-      return false;
-    return extension == image.extension;
+  public static ImageBuilder builder() {
+    return new ImageBuilder();
   }
 
-  @Override
-  public int hashCode() {
-    int result = id != null ? id.hashCode() : 0;
-    result = 31 * result + (url != null ? url.hashCode() : 0);
-    result = 31 * result + (alt != null ? alt.hashCode() : 0);
-    result = 31 * result + (extension != null ? extension.hashCode() : 0);
-    return result;
+  public static class ImageBuilder {
+    private String id;
+    private String url;
+    private String alt;
+    private ExtensionEnum extension;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+
+    public ImageBuilder id(String id) {
+      this.id = id;
+      return this;
+    }
+
+    public ImageBuilder url(String url) {
+      this.url = url;
+      return this;
+    }
+
+    public ImageBuilder alt(String alt) {
+      this.alt = alt;
+      return this;
+    }
+
+    public ImageBuilder extension(ExtensionEnum extension) {
+      this.extension = extension;
+      return this;
+    }
+
+    public ImageBuilder createdAt(LocalDateTime createdAt) {
+      this.createdAt = createdAt;
+      return this;
+    }
+
+    public ImageBuilder updatedAt(LocalDateTime updatedAt) {
+      this.updatedAt = updatedAt;
+      return this;
+    }
+
+    public Image build() {
+      return new Image(id, url, alt, extension, createdAt, updatedAt);
+    }
   }
 }

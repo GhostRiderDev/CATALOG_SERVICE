@@ -1,13 +1,13 @@
 package com.ecommerce.catalog.domain.model;
 
 import java.math.BigDecimal;
+import com.ecommerce.catalog.application.dto.CreatePriceDto;
 
 public class Price {
   private BigDecimal value;
   private String currency;
 
-  public Price() {
-  }
+  public Price() {}
 
   public Price(BigDecimal value, String currency) {
     this.value = value;
@@ -32,27 +32,29 @@ public class Price {
 
   @Override
   public String toString() {
-    return "Price{" +
-            "value=" + value +
-            ", currency='" + currency + '\'' +
-            '}';
+    return "Price{" + "value=" + value + ", currency='" + currency + '\'' + '}';
   }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-
-    Price price = (Price) o;
-
-    if (value != null ? !value.equals(price.value) : price.value != null) return false;
-    return currency != null ? currency.equals(price.currency) : price.currency == null;
+  public static PriceBuilder builder() {
+    return new PriceBuilder();
   }
 
-  @Override
-  public int hashCode() {
-    int result = value != null ? value.hashCode() : 0;
-    result = 31 * result + (currency != null ? currency.hashCode() : 0);
-    return result;
+  public static class PriceBuilder {
+    private BigDecimal value;
+    private String currency;
+
+    public PriceBuilder value(BigDecimal createPriceDto) {
+      this.value = createPriceDto;
+      return this;
+    }
+
+    public PriceBuilder currency(String currency) {
+      this.currency = currency;
+      return this;
+    }
+
+    public Price build() {
+      return new Price(value, currency);
+    }
   }
 }
