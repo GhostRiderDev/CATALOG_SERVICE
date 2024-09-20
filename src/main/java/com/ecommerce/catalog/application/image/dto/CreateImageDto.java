@@ -1,4 +1,4 @@
-package com.ecommerce.catalog.application.dto;
+package com.ecommerce.catalog.application.image.dto;
 
 import org.hibernate.validator.constraints.URL;
 import jakarta.validation.constraints.NotBlank;

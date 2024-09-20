@@ -1,7 +1,7 @@
 package com.ecommerce.catalog.domain.model.price;
 
 import java.math.BigDecimal;
-import com.ecommerce.catalog.application.dto.CreatePriceDto;
+import com.ecommerce.catalog.application.price.dto.CreatePriceDto;
 
 public class Price {
   private BigDecimal value;

@@ -1,4 +1,4 @@
-package com.ecommerce.catalog.application.dto;
+package com.ecommerce.catalog.application.price.dto;
 
 import java.math.BigDecimal;
 import jakarta.validation.constraints.DecimalMax;

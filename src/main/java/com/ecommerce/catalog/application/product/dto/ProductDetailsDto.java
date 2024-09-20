@@ -3,20 +3,23 @@ package com.ecommerce.catalog.application.product.dto;
 import java.util.List;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.UUID;
+import com.ecommerce.catalog.application.image.dto.CreateImageDto;
+import com.ecommerce.catalog.application.price.dto.CreatePriceDto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.UniqueElements;
-import com.ecommerce.catalog.application.image.dto.CreateImageDto;
-import com.ecommerce.catalog.application.price.dto.CreatePriceDto;
+
 
 @Builder
 @Getter
 @Setter
-public class CreateProductDto {
+public class ProductDetailsDto {
+  @UUID
+  private String id;
 
   @NotBlank
   @Size(min = 3, max = 100)

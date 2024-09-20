@@ -1,10 +1,10 @@
 package com.ecommerce.catalog.application.product.mapper;
 
 import java.util.List;
-
-import com.ecommerce.catalog.application.dto.CreateImageDto;
-import com.ecommerce.catalog.application.dto.CreatePriceDto;
+import com.ecommerce.catalog.application.image.dto.CreateImageDto;
+import com.ecommerce.catalog.application.price.dto.CreatePriceDto;
 import com.ecommerce.catalog.application.product.dto.CreateProductDto;
+import com.ecommerce.catalog.application.product.dto.ProductDetailsDto;
 import com.ecommerce.catalog.domain.model.image.Image;
 import com.ecommerce.catalog.domain.model.image.enumerate.ExtensionEnum;
 import com.ecommerce.catalog.domain.model.price.Price;
@@ -64,6 +64,42 @@ public class ProductMapper implements IProductMapper {
       .name(product.getName())
       .description(product.getDescription())
       .price(priceDto)
+      .images(imagesDto)
+          .build();
+  }
+
+  @Override
+  public ProductDetailsDto toDetailsDto(Product product) {
+    List<String> categoriesId = product.getCategories()
+    .stream()
+    .map(category -> category.getId())
+    .toList();
+
+
+
+    List<CreateImageDto> imagesDto = product.getImages()
+    .stream()
+    .map(image -> CreateImageDto
+          .builder()
+          .url(image.getUrl())
+          .alt(image.getAlt())
+          .extension(image.getExtension().name())
+          .build())
+    .toList();
+
+    CreatePriceDto priceDto = CreatePriceDto
+        .builder()
+        .value(product.getPrice().getValue())
+        .currency(product.getPrice().getCurrency())
+        .build();  
+
+    return ProductDetailsDto.builder()
+      .id(product.getId())
+      .name(product.getName())
+      .description(product.getDescription())
+      .price(priceDto)
+      .categoriesId(categoriesId)
+      .brandId(product.getBrand().getId())
       .images(imagesDto)
           .build();
   }

@@ -1,8 +1,9 @@
-package com.ecommerce.catalog.domain.model.product.port.out.repository;
+package com.ecommerce.catalog.domain.model.product.port;
 
 import java.util.List;
 import java.util.Optional;
-import com.ecommerce.catalog.domain.model.product.Product;;
+
+import com.ecommerce.catalog.domain.model.product.Product;
 
 public interface IProductRepository {
   Product save(Product product);
