@@ -1,4 +1,4 @@
-package com.ecommerce.catalog.application.dto;
+package com.ecommerce.catalog.application.product.dto;
 
 import java.util.List;
 import org.hibernate.validator.constraints.Length;
@@ -10,6 +10,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.UniqueElements;
+
+import com.ecommerce.catalog.application.dto.CreateImageDto;
+import com.ecommerce.catalog.application.dto.CreatePriceDto;
 
 @Builder
 @Getter

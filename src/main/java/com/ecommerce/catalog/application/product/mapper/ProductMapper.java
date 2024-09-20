@@ -1,12 +1,12 @@
-package com.ecommerce.catalog.application.mapper;
+package com.ecommerce.catalog.application.product.mapper;
 
 import java.util.List;
 
 import com.ecommerce.catalog.application.dto.CreateImageDto;
 import com.ecommerce.catalog.application.dto.CreatePriceDto;
-import com.ecommerce.catalog.application.dto.CreateProductDto;
-import com.ecommerce.catalog.domain.enumerate.ExtensionEnum;
+import com.ecommerce.catalog.application.product.dto.CreateProductDto;
 import com.ecommerce.catalog.domain.model.image.Image;
+import com.ecommerce.catalog.domain.model.image.enumerate.ExtensionEnum;
 import com.ecommerce.catalog.domain.model.price.Price;
 import com.ecommerce.catalog.domain.model.product.Product;
 

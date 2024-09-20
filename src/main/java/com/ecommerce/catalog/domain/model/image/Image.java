@@ -1,7 +1,8 @@
 package com.ecommerce.catalog.domain.model.image;
 
 import java.time.LocalDateTime;
-import com.ecommerce.catalog.domain.enumerate.ExtensionEnum;
+
+import com.ecommerce.catalog.domain.model.image.enumerate.ExtensionEnum;
 
 public class Image {
   private String id;
