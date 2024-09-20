@@ -5,18 +5,16 @@ import java.time.LocalDateTime;
 public class Brand {
   private String id;
   private String name;
-  private String cuntry;
+  private String country;
   private LocalDateTime createdAt;
   private LocalDateTime updatedAt;
 
-//Intentar no colocar logica en el modelo
-  public Brand() {}
 
-  public Brand(String id, String name, String cuntry, LocalDateTime createdAt,
+  public Brand(String id, String name, String country, LocalDateTime createdAt,
       LocalDateTime updatedAt) {
     this.id = id;
     this.name = name;
-    this.cuntry = cuntry;
+    this.country = country;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
   }
@@ -38,12 +36,12 @@ public class Brand {
     this.name = name;
   }
 
-  public String getCuntry() {
-    return cuntry;
+  public String getCountry() {
+    return country;
   }
 
-  public void setCuntry(String cuntry) {
-    this.cuntry = cuntry;
+  public void setCuntry(String country) {
+    this.country = country;
   }
 
   public LocalDateTime getCreatedAt() {
@@ -63,34 +61,59 @@ public class Brand {
     return "Brand{" +
             "id='" + id + '\'' +
             ", name='" + name + '\'' +
-            ", cuntry='" + cuntry + '\'' +
+            ", cuntry='" + country + '\'' +
             ", createdAt=" + createdAt +
             ", updatedAt=" + updatedAt +
             '}';
   }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-
-    Brand brand = (Brand) o;
-
-    if (id != null ? !id.equals(brand.id) : brand.id != null) return false;
-    if (name != null ? !name.equals(brand.name) : brand.name != null) return false;
-    if (cuntry != null ? !cuntry.equals(brand.cuntry) : brand.cuntry != null) return false;
-    if (createdAt != null ? !createdAt.equals(brand.createdAt) : brand.createdAt != null) return false;
-    return updatedAt != null ? updatedAt.equals(brand.updatedAt) : brand.updatedAt == null;
+  public static BrandBuilder builder() {
+    return new BrandBuilder();
   }
 
-  @Override
-  public int hashCode() {
-    int result = id != null ? id.hashCode() : 0;
-    result = 31 * result + (name != null ? name.hashCode() : 0);
-    result = 31 * result + (cuntry != null ? cuntry.hashCode() : 0);
-    result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
-    result = 31 * result + (updatedAt != null ? updatedAt.hashCode() : 0);
-    return result;
+  public static class BrandBuilder {
+    private String id;
+    private String name;
+    private String country;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+
+    BrandBuilder() {
+    }
+
+    public Brand.BrandBuilder id(String id) {
+      this.id = id;
+      return this;
+    }
+
+    public Brand.BrandBuilder name(String name) {
+      this.name = name;
+      return this;
+    }
+
+    public Brand.BrandBuilder country(String country) {
+      this.country = country;
+      return this;
+    }
+
+    public Brand.BrandBuilder createdAt(LocalDateTime createdAt) {
+      this.createdAt = createdAt;
+      return this;
+    }
+
+    public Brand.BrandBuilder updatedAt(LocalDateTime updatedAt) {
+      this.updatedAt = updatedAt;
+      return this;
+    }
+
+    public Brand build() {
+      return new Brand(id, name, country, createdAt, updatedAt);
+    }
+
+    public String toString() {
+      return "Brand.BrandBuilder(id=" + this.id + ", name=" + this.name + ", country=" + this.country + ", createdAt=" + this.createdAt + ", updatedAt=" + this.updatedAt + ")";
+    }
   }
+
 
 }

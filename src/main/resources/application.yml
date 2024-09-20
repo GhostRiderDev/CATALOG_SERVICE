@@ -33,12 +33,14 @@ spring:
 
 springdoc:
   swagger-ui:
-    path: /docs
-# management:
-#   endpoints:
-#     web:
-#       exposure:
-#         include: "*"
-#   endpoint:
-#     env:
-#       show-values: always
+    path: /swagger.html
+  api-docs:
+    path: /api-docs
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    env:
+      show-values: always
