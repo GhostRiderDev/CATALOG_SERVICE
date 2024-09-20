@@ -1,4 +1,4 @@
-package com.ecommerce.catalog.domain.model;
+package com.ecommerce.catalog.domain.model.product;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -20,12 +20,11 @@ public class Product {
   private LocalDateTime updatedAt;
 
 
-  //Intentar no colocar logica en el modelo
+  // Intentar no colocar logica en el modelo
   public Product() {}
 
   public Product(String id, String name, String description, Price price, List<Category> categories,
-      Brand brand, List<Image> images, LocalDateTime createdAt,
-      LocalDateTime updatedAt) {
+      Brand brand, List<Image> images, LocalDateTime createdAt, LocalDateTime updatedAt) {
     this.id = id;
     this.name = name;
     this.description = description;
@@ -95,7 +94,7 @@ public class Product {
     this.images = images;
   }
 
- 
+
 
   public LocalDateTime getCreatedAt() {
     return createdAt;
@@ -119,8 +118,8 @@ public class Product {
   public String toString() {
     return "Product{" + "id='" + id + '\'' + ", name='" + name + '\'' + ", description='"
         + description + '\'' + ", price=" + price + ", categories=" + categories + ", brand="
-        + brand + ", images=" + images + ", createdAt=" + createdAt
-        + ", updatedAt=" + updatedAt + '}';
+        + brand + ", images=" + images + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt
+        + '}';
   }
 
   public static ProductBuilder builder() {

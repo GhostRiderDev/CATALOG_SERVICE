@@ -1,7 +1,7 @@
-package com.ecommerce.catalog.domain.port.in.service;
+package com.ecommerce.catalog.domain.model.product.port.in.service;
 
 import java.util.List;
-import com.ecommerce.catalog.domain.model.Product;
+import com.ecommerce.catalog.domain.model.product.Product;
 
 public interface IProductService {
   Product saveProduct(Product product);
