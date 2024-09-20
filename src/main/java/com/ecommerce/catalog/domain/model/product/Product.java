@@ -1,4 +1,4 @@
-package com.ecommerce.catalog.domain.model;
+package com.ecommerce.catalog.domain.model.product;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -185,7 +185,7 @@ public class Product {
     }
 
     public Product build() {
-      return new Product(id, name, description, price, categories, brand, images, tags, createdAt,
+      return new Product(id, name, description, price, categories, brand, images, createdAt,
           updatedAt);
     }
   }

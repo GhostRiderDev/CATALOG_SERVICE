@@ -1,7 +1,8 @@
-package com.ecommerce.catalog.domain.port.in.service;
+package com.ecommerce.catalog.domain.model.product.port.in;
 
 import java.util.List;
-import com.ecommerce.catalog.domain.model.Product;
+
+import com.ecommerce.catalog.domain.model.product.Product;
 
 public interface IProductService {
   Product saveProduct(Product product);
@@ -10,7 +11,4 @@ public interface IProductService {
 
   List<Product> findAllProducts();
 
-  Product deleteProduct(String id);
-
-  Product updateProduct(Product product);
 }

@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.ecommerce.catalog.domain.model.category.Category;
 
-interface ICategoryRepository {
+public interface ICategoryRepository {
     List<Category> findAll();
     Optional<Category> findById(String id);
     Category save(Category category);
