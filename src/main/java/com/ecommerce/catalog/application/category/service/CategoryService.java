@@ -42,15 +42,27 @@ public class CategoryService implements ICategoryService {
   }
 
   @Override
-  public List<Category> findAllProducts() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'findAllProducts'");
+  public List<CategoryDetailsDto> findAllProducts() {
+    List<Category> categories = categoryRepository.findAll();
+    return categories.stream().map(category -> this.findProductById(category.getId())).toList();
   }
 
   @Override
-  public Category findProductById(String id) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'findProductById'");
+  public CategoryDetailsDto findProductById(String id) {
+    Category category = categoryRepository.findById(id);
+    if (category == null) {
+      throw new NotFoundException("Category not found");
+    }
+
+    ImageDetailsDto imageDto = null;
+
+    try {
+      imageDto = imageService.findImageById(category.getImage().getId());
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    return mapper.toDto(category, imageDto);
   }
 
 
