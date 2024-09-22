@@ -6,18 +6,19 @@ import com.ecommerce.catalog.domain.model.image.enumerate.ExtensionEnum;
 
 public class Image {
   private String id;
-  private String url;
+  private String name;
   private String alt;
   private ExtensionEnum extension;
   private LocalDateTime createdAt;
   private LocalDateTime updatedAt;
-  //Intentar no colocar logica en el modelo
+
+  // Intentar no colocar logica en el modelo
   public Image() {}
 
-  public Image(String id, String url, String alt, ExtensionEnum extension, LocalDateTime createdAt,
+  public Image(String id, String name, String alt, ExtensionEnum extension, LocalDateTime createdAt,
       LocalDateTime updatedAt) {
     this.id = id;
-    this.url = url;
+    this.name = name;
     this.alt = alt;
     this.extension = extension;
     this.createdAt = createdAt;
@@ -28,13 +29,14 @@ public class Image {
     return id;
   }
 
-  public String getUrl() {
-    return url;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public void setUrl(String url) {
-    this.url = url;
+  public String getName() {
+    return name;
   }
+
 
   public String getAlt() {
     return alt;
@@ -69,7 +71,7 @@ public class Image {
 
   @Override
   public String toString() {
-    return "Image{" + "id='" + id + '\'' + "url='" + url + '\'' + ", alt='" + alt + '\''
+    return "Image{" + "id='" + id + '\'' + "url='" + name + '\'' + ", alt='" + alt + '\''
         + ", extension=" + extension + '}';
   }
 
@@ -79,7 +81,7 @@ public class Image {
 
   public static class ImageBuilder {
     private String id;
-    private String url;
+    private String name;
     private String alt;
     private ExtensionEnum extension;
     private LocalDateTime createdAt;
@@ -90,8 +92,8 @@ public class Image {
       return this;
     }
 
-    public ImageBuilder url(String url) {
-      this.url = url;
+    public ImageBuilder name(String name) {
+      this.name = name;
       return this;
     }
 
@@ -116,7 +118,7 @@ public class Image {
     }
 
     public Image build() {
-      return new Image(id, url, alt, extension, createdAt, updatedAt);
+      return new Image(id, name, alt, extension, createdAt, updatedAt);
     }
   }
 }

@@ -10,7 +10,6 @@ public class Category {
   private Image image;
   private LocalDateTime createdAt;
   private LocalDateTime updatedAt;
-//Intentar no colocar logica en el modelo
 
   public Category() {}
 
@@ -61,6 +60,10 @@ public class Category {
     this.updatedAt = updatedAt;
   }
 
+  public void setCreatedAt(LocalDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
   @Override
   public String toString() {
     return "Category {" + "id='" + id +
@@ -70,32 +73,48 @@ public class Category {
          ", updatedAt=" + updatedAt + '}';
   }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o)
-      return true;
-    if (o == null || getClass() != o.getClass())
-      return false;
-
-    Category category = (Category) o;
-
-    if (id != null ? !id.equals(category.id) : category.id != null)
-      return false;
-    if (name != null ? !name.equals(category.name) : category.name != null)
-      return false;
-    if (image != null ? image.equals(category.image) : category.image == null)
-      return false;
-    if (createdAt != null ? !createdAt.equals(category.createdAt) : category.createdAt != null)
-      return false;
-    return updatedAt != null ? updatedAt.equals(category.updatedAt) : category.updatedAt == null;
+  public static CategoryBuilder builder() {
+    return new CategoryBuilder();
   }
 
-  @Override
-  public int hashCode() {
-    int result = id != null ? id.hashCode() : 0;
-    result = 31 * result + (name != null ? name.hashCode() : 0);
-    result = 31 * result + (image != null ? image.hashCode() : 0);
-    result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
-    return result;
+  public static class CategoryBuilder {
+    private String id;
+    private String name;
+    private Image image;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+
+    CategoryBuilder() {}
+
+    public CategoryBuilder id(String id) {
+      this.id = id;
+      return this;
+    }
+
+    public CategoryBuilder name(String name) {
+      this.name = name;
+      return this;
+    }
+
+    public CategoryBuilder image(Image image) {
+      this.image = image;
+      return this;
+    }
+
+    public CategoryBuilder createdAt(LocalDateTime createdAt) {
+      this.createdAt = createdAt;
+      return this;
+    }
+
+    public CategoryBuilder updatedAt(LocalDateTime updatedAt) {
+      this.updatedAt = updatedAt;
+      return this;
+    }
+
+    public Category build() {
+      return new Category(id, name, image, createdAt, updatedAt);
+    }
   }
+
+ 
 }

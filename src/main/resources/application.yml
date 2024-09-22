@@ -4,7 +4,10 @@ server:
 spring:
   application:
     name: CatalogService
-
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
   datasource:
     url: ${CATALOG_DB_URI}
     username: ${CATALOG_DB_USER}
@@ -28,9 +31,19 @@ spring:
         backend: secrets
         default-context: catalog
         profile-separator: "/"
+    aws:
+      credentials:
+        accessKey: ${CATALOG_AWS_S3_ACCESS}
+        secretKey: ${CATALOG_AWS_S3_SECRET}
+      region: 
+        static: us-east-1
+      stack:
+        auto: false     
+      bucket:
+        name: ${CATALOG_AWS_S3_BUCKET}   
   config:
     import: vault://
-
+    
 springdoc:
   swagger-ui:
     path: /swagger.html
@@ -44,3 +57,4 @@ management:
   endpoint:
     env:
       show-values: always
+

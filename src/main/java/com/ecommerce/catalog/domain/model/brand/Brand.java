@@ -40,7 +40,7 @@ public class Brand {
     return country;
   }
 
-  public void setCuntry(String country) {
+  public void setCountry(String country) {
     this.country = country;
   }
 
@@ -54,6 +54,10 @@ public class Brand {
 
   public void setUpdatedAt(LocalDateTime updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+  public void setCreatedAt(LocalDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   @Override

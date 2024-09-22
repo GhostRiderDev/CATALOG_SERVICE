@@ -7,4 +7,6 @@ public interface Constant {
     String PRODUCT_NOT_FOUND = "Product not found";
     String CATEGORY_NOT_FOUND = "Category not found";
     String BRAND_NOT_FOUND = "Brand not found";
+    String CATEGORY_ALREADY_EXIST = "Category already exist";
+    String CATEGORY_WITH_IMAGE_ALREADY_EXIST = "Image is already used with a category";
 }

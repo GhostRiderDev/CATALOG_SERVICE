@@ -1,5 +1,6 @@
 package com.ecommerce.catalog.application.brand.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.ecommerce.catalog.application.brand.dto.BrandDetailsDto;
@@ -13,7 +14,8 @@ public class BrandService implements IBrandService {
     private final IBrandRepository brandRepository;
     private final IBrandModelDtoMapper brandModelDtoMapper;
 
-    public BrandService(IBrandRepository brandRepository, IBrandModelDtoMapper brandModelDtoMapper) {
+    public BrandService(IBrandRepository brandRepository,
+            IBrandModelDtoMapper brandModelDtoMapper) {
         this.brandRepository = brandRepository;
         this.brandModelDtoMapper = brandModelDtoMapper;
     }
@@ -21,6 +23,8 @@ public class BrandService implements IBrandService {
     @Override
     public BrandDetailsDto createBrand(CreateBrandDto brandDto) {
         Brand brand = brandModelDtoMapper.toModel(brandDto);
+        brand.setCreatedAt(LocalDateTime.now());
+        brand.setUpdatedAt(LocalDateTime.now());
         Brand savedBrand = brandRepository.save(brand);
         return brandModelDtoMapper.toDto(savedBrand);
     }
@@ -33,10 +37,7 @@ public class BrandService implements IBrandService {
 
     @Override
     public List<BrandDetailsDto> findAllBrands() {
-        return brandRepository.findAll()
-                .stream()
-                .map(brandModelDtoMapper::toDto)
-                .toList();
+        return brandRepository.findAll().stream().map(brandModelDtoMapper::toDto).toList();
     }
-    
+
 }
