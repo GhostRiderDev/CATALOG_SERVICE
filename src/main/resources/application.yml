@@ -22,7 +22,7 @@ spring:
         dialect: ${CATALOG_DB_DIALECT}
   cloud:
     vault:
-      uri: http://localhost:8200
+      uri: ${VAULT_SERVER_HOST}
       token: ${VAULT_TOKEN}
       authentication: token
       scheme: http
