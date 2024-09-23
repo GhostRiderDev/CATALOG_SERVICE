@@ -40,4 +40,9 @@ public class BrandService implements IBrandService {
         return brandRepository.findAll().stream().map(brandModelDtoMapper::toDto).toList();
     }
 
+    @Override
+    public Brand findBrandByIdInternal(String id) {
+        return brandRepository.findById(id);
+    }
+
 }

@@ -67,7 +67,7 @@ public class CategoryPersistenceAdapter implements ICategoryRepository {
         .updatedAt(category.getUpdatedAt())
         .build();
 
-    log.info("Saving category: {}", categoryEntity);    
+    
     CategoryEntity categoryDB = jpaCategoryRepository.save(categoryEntity);
     return mapperEntityModelCategory.toModel(categoryDB);
   }

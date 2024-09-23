@@ -44,11 +44,11 @@ public class CategoryService implements ICategoryService {
   @Override
   public List<CategoryDetailsDto> findAllProducts() {
     List<Category> categories = categoryRepository.findAll();
-    return categories.stream().map(category -> this.findProductById(category.getId())).toList();
+    return categories.stream().map(category -> this.findCategoryById(category.getId())).toList();
   }
 
   @Override
-  public CategoryDetailsDto findProductById(String id) {
+  public CategoryDetailsDto findCategoryById(String id) {
     Category category = categoryRepository.findById(id);
     if (category == null) {
       throw new NotFoundException("Category not found");
@@ -65,6 +65,9 @@ public class CategoryService implements ICategoryService {
     return mapper.toDto(category, imageDto);
   }
 
-
+  @Override
+  public Category findCategoryByIdInternal(String id) {
+    return categoryRepository.findById(id);
+  }
 
 }

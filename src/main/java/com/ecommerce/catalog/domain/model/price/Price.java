@@ -1,14 +1,12 @@
 package com.ecommerce.catalog.domain.model.price;
 
 import java.math.BigDecimal;
-import com.ecommerce.catalog.application.price.dto.CreatePriceDto;
 
 public class Price {
   private BigDecimal value;
   private String currency;
 
   public Price() {}
-  //Intentar no colocar logica en el modelo
   public Price(BigDecimal value, String currency) {
     this.value = value;
     this.currency = currency;

@@ -3,6 +3,8 @@ package com.ecommerce.catalog.infrastructure.category.controller;
 import java.io.IOException;
 import java.util.List;
 import org.hibernate.validator.constraints.UUID;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,19 +28,19 @@ public class CategoryController {
   }
 
   @PostMapping("/create")
-  public CategoryDetailsDto createCategory(@Valid @RequestBody CreateCategoryDto createCategory)
+  public ResponseEntity<CategoryDetailsDto> createCategory(@Valid @RequestBody CreateCategoryDto createCategory)
       throws IOException {
-    return categoryService.saveCategory(createCategory);
+    return new ResponseEntity<>(categoryService.saveCategory(createCategory), HttpStatus.CREATED);
   }
 
   @GetMapping("/all")
-  public List<CategoryDetailsDto> getAllCategories() {
-    return categoryService.findAllProducts();
+  public ResponseEntity<List<CategoryDetailsDto>> getAllCategories() {
+    return ResponseEntity.ok(categoryService.findAllProducts());
   }
 
   @GetMapping("/find/{id}")
-  public CategoryDetailsDto getCategoryById(@PathVariable("id") @UUID String id) {
-    return categoryService.findProductById(id);
+  public ResponseEntity<CategoryDetailsDto> getCategoryById(@PathVariable("id") @UUID String id) {
+    return ResponseEntity.ok(categoryService.findCategoryById(id));
   }
 
 }

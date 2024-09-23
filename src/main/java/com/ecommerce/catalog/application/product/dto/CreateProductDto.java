@@ -9,9 +9,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.UniqueElements;
-import com.ecommerce.catalog.application.image.dto.CreateImageDto;
-import com.ecommerce.catalog.application.price.dto.CreatePriceDto;
+import com.ecommerce.catalog.application.price.dto.PriceDto;
 
 @Builder
 @Getter
@@ -28,7 +26,7 @@ public class CreateProductDto {
   private String description;
 
 
-  private CreatePriceDto price;
+  private PriceDto price;
 
   @NotNull
   @Length(max = 10, min = 1)
@@ -42,6 +40,6 @@ public class CreateProductDto {
 
   @NotNull
   @Length(max = 6, min = 1)
-  private List<CreateImageDto> images;
+  private List<@UUID String> imagesIds;
 
 }
