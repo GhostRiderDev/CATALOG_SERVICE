@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import com.ecommerce.catalog.domain.model.category.Category;
 import com.ecommerce.catalog.application.brand.mapper.IBrandModelDtoMapper;
 import com.ecommerce.catalog.application.category.mapper.IMapperModelDtoCategory;
-import com.ecommerce.catalog.application.image.mapper.IImageDtoModelMapper;
 import com.ecommerce.catalog.application.image.service.IImageService;
 import com.ecommerce.catalog.application.price.dto.PriceDto;
 import com.ecommerce.catalog.application.product.dto.CreateProductDto;
@@ -20,14 +19,12 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @Slf4j
 public class ProductMapperDtoModel implements IProductMapperDtoModel {
-  private final IImageDtoModelMapper imageMapper;
   private final IMapperModelDtoCategory categoryMapper;
   private final IBrandModelDtoMapper brandMapper;
   private final IImageService imageService;
 
-  public ProductMapperDtoModel(IImageDtoModelMapper imageMapper, IMapperModelDtoCategory categoryMapper,
+  public ProductMapperDtoModel(IMapperModelDtoCategory categoryMapper,
       IBrandModelDtoMapper brandMapper, IImageService imageService) {
-    this.imageMapper = imageMapper;
     this.categoryMapper = categoryMapper;
     this.brandMapper = brandMapper;
     this.imageService = imageService;
@@ -61,7 +58,7 @@ public class ProductMapperDtoModel implements IProductMapperDtoModel {
         .name(product.getName())
         .description(product.getDescription())
         .price(product.getPrice())
-        .categories(product.getCategories().stream().map((category) -> {
+        .categories(product.getCategories().stream().map(category -> {
           try {
             return categoryMapper.toDto(category, imageService.findImageById(category.getImage().getId()));
           } catch (IOException e) {
@@ -70,7 +67,7 @@ public class ProductMapperDtoModel implements IProductMapperDtoModel {
           return null;
         }).toList())
         .brand(brandMapper.toDto(product.getBrand()))
-        .images(product.getImages().stream().map((image) -> {
+        .images(product.getImages().stream().map(image -> {
           try {
             return imageService.findImageById(image.getId());
           } catch (IOException e) {

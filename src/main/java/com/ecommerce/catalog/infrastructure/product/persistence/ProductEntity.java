@@ -10,9 +10,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
@@ -38,10 +39,20 @@ public class ProductEntity {
   @ManyToOne
   private BrandEntity brand;
 
-  @Transient
+  @ManyToMany
+  @JoinTable(
+    name = "product_category",
+    joinColumns = @JoinColumn(name = "product_id"),
+    inverseJoinColumns = @JoinColumn(name = "category_id")
+  )
   private List<CategoryEntity> categories;
 
-  @Transient
+  @ManyToMany
+  @JoinTable(
+    name = "product_image",
+    joinColumns = @JoinColumn(name = "product_id"),
+    inverseJoinColumns = @JoinColumn(name = "image_id")
+  )
   private List<ImageEntity> images;
 
   @Embedded

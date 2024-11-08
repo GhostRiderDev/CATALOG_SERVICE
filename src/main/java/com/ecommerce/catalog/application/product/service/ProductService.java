@@ -65,6 +65,8 @@ public class ProductService implements IProductService {
 
   @Override
   public List<ProductDetailsDto> findAllProducts() {
-    return productRepository.findAll().stream().map((product) -> findProductById(product.getId())).toList();
+    var products = productRepository.findAll();
+    log.info("Products found: {} *******", products);
+    return productRepository.findAll().stream().map(product -> findProductById(product.getId())).toList();
   }
 }

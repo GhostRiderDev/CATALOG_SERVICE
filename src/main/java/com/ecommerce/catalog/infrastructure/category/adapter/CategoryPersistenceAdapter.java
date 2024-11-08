@@ -1,6 +1,5 @@
 package com.ecommerce.catalog.infrastructure.category.adapter;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.stereotype.Repository;
 import com.ecommerce.catalog.domain.constant.Constant;

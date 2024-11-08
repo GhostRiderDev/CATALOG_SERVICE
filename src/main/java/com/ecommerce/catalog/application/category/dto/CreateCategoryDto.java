@@ -1,6 +1,5 @@
 package com.ecommerce.catalog.application.category.dto;
 
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.UUID;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

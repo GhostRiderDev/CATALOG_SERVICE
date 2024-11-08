@@ -1,7 +1,7 @@
 package com.ecommerce.catalog.infrastructure.image.adapter;
 
 import java.util.List;
-import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 import com.ecommerce.catalog.domain.constant.Constant;
 import com.ecommerce.catalog.domain.exception.NotFoundException;

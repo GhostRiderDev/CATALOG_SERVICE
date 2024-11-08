@@ -59,6 +59,7 @@ public class MapperProductEntityModel implements IMapperProductEntityModel {
 
   @Override
   public Product toModel(ProductEntity productEntity) {
+    log.info("ProductEntity: {} ********", productEntity);
     return Product.builder().id(productEntity.getId()).name(productEntity.getName())
         .description(productEntity.getDescription())
         .brand(brandMapper.toModel(productEntity.getBrand()))
